@@ -1,0 +1,29 @@
+[
+{
+"title": "Cours Particuliers",
+"cost": "25 euros / heure",
+"experienceLevel": "Intermédiaire, Avancé (A2-C2)",
+"description": "Attention Personnalisée",
+"img":"/coffeemugblueshirt.jpg",
+"video": "https://youtu.be/j2zQ15KOY-c"
+,"key":"1"
+},
+{
+"title": "Business English",
+"cost": "30 euros / heure",
+"experienceLevel": "Intermédiaire, Avancé (A2-C2)",
+"description": "Réussite Professionnelle",
+"img1":"/overshouldermanlaptop.jpg",
+"video": "https://youtu.be/TF0XxBSqU_Q"
+,"key":"2"
+},
+{
+"title": "Préparation aux examens",
+"cost": "25 euros / heure",
+"experienceLevel": "Intermédiaire, Avancé (A2-C2)",
+"description": "TOEFL/TOEIC/Linguaskill",
+"img1":"/twobooksandpen.jpg",
+"video": "https://youtu.be/A5LGe2DqJNI"
+,"key":"3"
+}
+]

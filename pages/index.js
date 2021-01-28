@@ -1,65 +1,101 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-
-export default function Home() {
+import Home from '../components/Home'
+import path from "path"
+import fs from "fs"
+const index = ({blogs,reviews,courses,faqs, experiences}) => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+    <div>
+      <Home blogs={blogs[0].blogs} experiences={experiences[0].experiences} reviews={reviews[0].reviews} courses={courses[0].courses} faqs={faqs[0].faqs} />
     </div>
   )
+}
+
+export default index
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const coursesDirectory = path.join(process.cwd(), 'courses')
+  const courseNames = fs.readdirSync(coursesDirectory)
+  const reviewsDirectory = path.join(process.cwd(), 'reviews')
+  const reviewNames = fs.readdirSync(reviewsDirectory)
+  const blogsDirectory = path.join(process.cwd(), 'blogs')
+  const blogNames = fs.readdirSync(blogsDirectory)
+  const faqsDirectory = path.join(process.cwd(), 'faqs')
+  const faqNames = fs.readdirSync(faqsDirectory)
+  const experiencesDirectory = path.join(process.cwd(), 'experiences')
+  const experienceNames = fs.readdirSync(experiencesDirectory)
+
+
+  const faqs = faqNames.map((filename) => {
+    const filePath = path.join(faqsDirectory, filename)
+    const faqs = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    // Generally you would parse/transform the contents
+    // For example you can transform markdown to HTML here
+
+    return {
+   faqs,
+    }
+  })
+
+  
+  const experiences = experienceNames.map((filename) => {
+    const filePath = path.join(experiencesDirectory, filename)
+    const experiences = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    // Generally you would parse/transform the contents
+    // For example you can transform markdown to HTML here
+
+    return {
+   experiences,
+    }
+  })
+
+
+  const courses = courseNames.map((filename) => {
+    const filePath = path.join(coursesDirectory, filename)
+    const courses = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    // Generally you would parse/transform the contents
+    // For example you can transform markdown to HTML here
+
+    return {
+   courses,
+    }
+  })
+
+    const reviews = reviewNames.map((filename) => {
+    const filePath = path.join(reviewsDirectory, filename)
+    const reviews = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    // Generally you would parse/transform the contents
+    // For example you can transform markdown to HTML here
+
+    return {
+   reviews,
+    }
+  })
+
+    const blogs = blogNames.map((filename) => {
+    const filePath = path.join(blogsDirectory, filename)
+    const blogs = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    // Generally you would parse/transform the contents
+    // For example you can transform markdown to HTML here
+
+    return {
+   blogs,
+    }
+  })
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      reviews,
+      blogs,
+      courses,
+      faqs,
+      experiences
+    },
+  }
 }
