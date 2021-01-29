@@ -8,6 +8,9 @@ import Image from "next/image"
 import fetch from "isomorphic-fetch"
 import {useEffect, useState} from "react"
 import {useAppContext} from "../contexts/state.js"
+import StickyNavbar from '../components/StickyNavbar'
+import Footer from "./Footer"
+
 
 const Home = ({blogs, courses, reviews,faqs, experiences}) => {
 useEffect(()=>{
@@ -71,17 +74,26 @@ if (process.browser) {
 
     return (
         <div>
+        <StickyNavbar/> 
         <Hero />
         
         <div className='container'>
-        <div>
+          <br/>
+          <br/>
+          <h2 className='text-center'>Our Current Course Offerings</h2>
+        <div className='grid-3' id="courses">
         {courses.map(course => (<CourseItem key={course.key} course={course}/>))}
         </div>
-        {blogs.map(blog => (<BlogItem key={blog.key} blog={blog}/>))}
-        <div>
-        {reviews.map(review => (<ReviewItem key={review.key} review={review}/>))}
+            <br/>
+          <br/>
+          <h2 className='text-center'>Read Real Reviews</h2>
+        <div id='reviews' className='grid-2'>
+      
+        {reviews.map(reviewa => (<ReviewItem key={reviewa.key} reviewa={reviewa}/>))}
         </div>
-    <div className="grid-2">
+        <br/>
+        <br/>
+    <div className="grid-2" id='about'>
        <div>
         <h1>À Propos</h1>
         <h3>Who Am I?</h3>
@@ -103,27 +115,47 @@ if (process.browser) {
               vous aider à atteindre vos objectifs. Contactez-moi, et mettons-nous au travail. </p>
        </div>
   </div>
+    <br/>
+        <br/>
 
-
-        <div>
-        {faqs.map(faq => (<FaqItem key={faq.key} faq={faq}/>))}
+        <div id='questions'>
+        <h3> Questions et Réponses</h3> 
+             {faqs.map(faq => (<FaqItem key={faq.key} faq={faq}/>))}
         </div> 
-        <div>
+            <br/>
+        <br/>
+        <div id='experiences'>
             <h3>Mon Éxperience</h3>
             <div className="grid-2">
                 <div className="">
-            <h3>A Professional Teacher at Your Service</h3>
-            <h4>At Your Service For All Your Professional English Related Needs</h4>
+              <div>    
+            <h3>A Professional Teacher With Years of Experience</h3>
+            
+            </div>
+             
+             {experiences.map(experience => (<ExperienceItem key={experience.key} experience={experience}/>))}
+             
                 </div>
-                <div className="">
-                    <Image src="/rwarne1.jpg" height='400' width='400' alt="English Direct Rebecca Warner"/>
+                <div className="py-3 mx-3">
+                    <Image src="/rwarne1.png" height='400' width='400' alt="English Direct Rebecca Warner"/>
+                    <h4 className='text-center'>At Your Service With <br/>All Your Business English Related Needs</h4>
                 </div>
         </div>
           
-        {experiences.map(experience => (<ExperienceItem key={experience.key} experience={experience}/>))}
+       
+        </div>
+            <br/>
+        <br/>
+        <div id='blogs'></div>
+        <div  className='all-center'>
+          <h3 className="lead text-center">Read From The Blog</h3>
+          {blogs.map(blog => (<BlogItem key={blog.key} blog={blog}/>))}
         </div>
 
-        </div>    
+        </div> 
+            <br/>
+        <br/>
+        <Footer />   
         </div>
     )
 }

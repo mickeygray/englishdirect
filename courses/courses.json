@@ -4,8 +4,8 @@
 "cost": "25 euros / heure",
 "experienceLevel": "Intermédiaire, Avancé (A2-C2)",
 "description": "Attention Personnalisée",
-"img":"/coffeemugblueshirt.jpg",
-"video": "https://youtu.be/j2zQ15KOY-c"
+"img1":"/coffemugblueshirt.png",
+"video": "j2zQ15KOY-c"
 ,"key":"1"
 },
 {
@@ -13,8 +13,8 @@
 "cost": "30 euros / heure",
 "experienceLevel": "Intermédiaire, Avancé (A2-C2)",
 "description": "Réussite Professionnelle",
-"img1":"/overshouldermanlaptop.jpg",
-"video": "https://youtu.be/TF0XxBSqU_Q"
+"img1":"/overshouldermanlaptop.png",
+"video": "TF0XxBSqU_Q"
 ,"key":"2"
 },
 {
@@ -22,8 +22,8 @@
 "cost": "25 euros / heure",
 "experienceLevel": "Intermédiaire, Avancé (A2-C2)",
 "description": "TOEFL/TOEIC/Linguaskill",
-"img1":"/twobooksandpen.jpg",
-"video": "https://youtu.be/A5LGe2DqJNI"
+"img1":"/twobooksandpen.png",
+"video": "A5LGe2DqJNI"
 ,"key":"3"
 }
 ]

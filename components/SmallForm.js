@@ -61,15 +61,16 @@ const SmallForm = () => {
   const { fullName, email } = form;
 
   return (
-    <div style={{ width: "100vw" }}>
+    <div>
       <form className='navbar' onSubmit={onSubmit}>
+        <div className="grid-3">
         <input
           type='text'
           placeholder='Name'
           name='fullName'
           value={fullName}
           onChange={onChange}
-          style={{ width: "33%", borderRadius: "5px" }}
+       
         />
         <input
           type='text'
@@ -77,14 +78,16 @@ const SmallForm = () => {
           value={email}
           onChange={onChange}
           placeholder='Email'
-          style={{ width: "33%", borderRadius: "5px" }}
+         
         />
         <button
           onClick={onClick}
-          className='btn btn-success btn-sm'
-          style={{ width: "25%", borderRadius: "5px" }}>
+          className='btn btn-primary btn-sm'
+          style={{borderRadius:'20px'}}
+          >
           Lets Get Started!
         </button>
+        </div>
       </form>
     </div>
   );

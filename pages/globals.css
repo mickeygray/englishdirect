@@ -1,11 +1,11 @@
 /* Global Styles */
 :root {
-  --primary-color: #319aca;
-  --secondary-color: #4f97a3;
+  --primary-color: #fe5032;
+  --secondary-color: #fbe8c9;
   --dark-color: #212226;
   --light-color: #f4f4f4;
-  --danger-color: #cc7722;
-  --success-color: #daa520;
+  --danger-color: #ff0000;
+  --success-color: #00ff00;
 }
 
 * {
@@ -330,13 +330,9 @@ img {
   grid-area: overlay;
   display: grid;
 
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 6;
-  z-index: -1;
   top: 0;
   width: 100vw;
+  height: 100vh;
 }
 
 .consimg {
@@ -692,7 +688,7 @@ img {
 .badge-secondary,
 .alert-secondary {
   background: var(--secondary-color);
-  color: #fff;
+  color: #333;
 }
 
 .btn-light,
@@ -838,7 +834,6 @@ table th {
   z-index: 1;
   width: 100%;
   opacity: 0.9;
-  margin-bottom: 1rem;
 }
 
 .navbar ul {
